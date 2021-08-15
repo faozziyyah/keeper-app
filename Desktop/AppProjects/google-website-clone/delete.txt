@@ -1,0 +1,20 @@
+index.js
+
+import { useRef } from 'react';
+import { useRouter } from 'next/router';
+
+const router = useRouter();
+
+  const searchInputRef = useRef(null);
+
+  const search = e => {
+    e.preventDefault();
+
+    const term = searchInputRef.current.value;
+
+    if (!term) return;
+
+    router.push(`/search?term=${term}`);
+}; 
+
+onClick={search} 
